@@ -1,7 +1,7 @@
 ---
 layout: single
 title: From Source to Suspect
-date: 2023-09-21
+date: 2023-10-17
 classes: wide
 tags:
   - phishing
@@ -11,5 +11,4 @@ tags:
 
 Uncovering a phishing campaign and tracking down the culprits through code review and open source intelligence.
 
-![share](/assets/images/from-source-to-suspect/coming-soon.jpg)
-
+> The story will be published after an official public talk later this year!
