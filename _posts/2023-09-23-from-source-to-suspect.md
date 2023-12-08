@@ -1,10 +1,9 @@
 ---
 layout: single
-title: The OffSec Experience
+title: The 'Try Harder' Saga
 date: 2023-12-08
 classes: wide
 tags:
-  - the offsec experience
   - coming soon
 ---
 
