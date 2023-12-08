@@ -8,6 +8,6 @@ tags:
   - coming soon
 ---
 
-This is a sneak peak to my ucpming journey, which I've named "The OffSec Experience", where I will be tackling my most difficult challenge yet!
+A sneak peak to my upcoming journey, where I will be tackling my most difficult challenge yet!
 
 > Current progress: 1/10
