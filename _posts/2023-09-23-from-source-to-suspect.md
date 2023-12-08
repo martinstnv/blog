@@ -1,6 +1,6 @@
 ---
 layout: single
-title: The Offsec Experience
+title: The OffSec Experience
 date: 2023-12-08
 classes: wide
 tags:
