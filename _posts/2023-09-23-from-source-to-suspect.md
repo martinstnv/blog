@@ -1,12 +1,10 @@
 ---
 layout: single
-title: The 'Try Harder' Saga
-date: 2023-12-08
+title: Command Injection via Java Properties and JAR Hijacking
+date: 2023-12-11
 classes: wide
 tags:
   - coming soon
 ---
 
-A sneak peak to my upcoming journey, where I will be tackling my most difficult challenge yet!
-
-> Current progress: 1/10
+> Writeup coming soon
