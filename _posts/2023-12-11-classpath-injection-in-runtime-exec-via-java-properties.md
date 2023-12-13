@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Command Injection in Runtime.exec via Java Properties and JAR Hijacking
+title: Classpath Injection in Runtime.exec via Java Properties
 date: 2023-12-11
 classes: wide
 tags:
