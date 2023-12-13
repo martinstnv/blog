@@ -11,8 +11,7 @@ tags:
 
 > In Java, Runtime.exec is often used to invoke a new process, but it does not invoke a new command shell, which means that chaining or piping multiple commands together does not usually work. Command injection is still possible if the process spawned with Runtime.exec is a command shell like command.com, cmd.exe, or /bin/sh.
 
-
-The vulnerable code:
+But consider the scenario where the Java application itself is the spawned process. The following example illustrates this situation.
 
 ```
 Runtime runtime = Runtime.getRuntime();
@@ -28,13 +27,9 @@ String command = String.format("\"C:/Program Files/Java/jrexxx/bin/javaw\" -cp "
 Process process = runtime.exec(command);
 ```
 
-The configuration file.
+To exploit this code, it's necessary to craft your own JAR file and use it to insert the classpath as a parameter into the Java process.
 
-```
-options=
-```
-
-Save the following java code into a file named `Calc.java`. It is important to add the package at the beginning of the file.
+Store the following example into a file named `Calc.java`, ensuring to include the package declaration at the start of the file.
 
 ```
 package command.injection;
