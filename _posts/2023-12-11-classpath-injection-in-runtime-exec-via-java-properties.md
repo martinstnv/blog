@@ -16,10 +16,9 @@ But consider the scenario where the Java application itself is the spawned proce
 ```
 Runtime runtime = Runtime.getRuntime();
 Properties properties = new Properties();
+FileInputStream fileInputStream = new FileInputStream("app.properties");
 
-try (FileInputStream stream = new FileInputStream("app.properties")) {
-    properties.load(stream);
-}
+properties.load(fileInputStream);
 
 String options = properties.getProperty("options", "");
 String command = String.format("javaw  %s -cp ".;./dependencies/*\" com.example.main.Example", new Object[] { options });
