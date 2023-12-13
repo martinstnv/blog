@@ -22,7 +22,7 @@ try (FileInputStream stream = new FileInputStream("app.properties")) {
 }
 
 String options = properties.getProperty("options", "");
-String command = String.format("\"C:/Program Files/Java/jrexxx/bin/javaw\" -cp ".;./dependencies/*\" %s com.example.main.Example", new Object[] { options });
+String command = String.format("javaw -cp ".;./dependencies/*\" %s com.example.main.Example", new Object[] { options });
 
 Process process = runtime.exec(command);
 ```
@@ -91,7 +91,7 @@ Run the target application and observe that instead of the expected program, the
 Below is the value that was fed into the exec function.
 
 ```
-"C:/Program Files/Java/jrexxx/bin/javaw" -cp ".;./dependencies/*\" command.injection.Calc &:: com.example.main.Example
+javaw -cp ".;./dependencies/*\" command.injection.Calc &:: com.example.main.Example
 ```
 
 ## References
