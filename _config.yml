@@ -106,7 +106,7 @@ analytics:
 author:
   name             : "Martin Stoynov"
   avatar           : "/assets/images/avatar.jpg"
-  bio              : "Hacker 📚 / OSCP / OSWP / KLCP"
+  bio              : "Security Engineer"
   links:
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
