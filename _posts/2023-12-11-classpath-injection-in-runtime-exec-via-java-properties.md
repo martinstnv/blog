@@ -6,7 +6,6 @@ classes: wide
 tags:
   - java properties
   - command injection
-  - jar hijacking
 ---
 
 > In Java, Runtime.exec is often used to invoke a new process, but it does not invoke a new command shell, which means that chaining or piping multiple commands together does not usually work. Command injection is still possible if the process spawned with Runtime.exec is a command shell like command.com, cmd.exe, or /bin/sh.
